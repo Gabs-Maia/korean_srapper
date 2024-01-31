@@ -1,3 +1,4 @@
+from urllib.parse import urljoin
 
 
 def absolute_url(absolute_url):
@@ -12,12 +13,6 @@ def absolute_url(absolute_url):
     return url_absolutes
 
 
-def translate_phrase():
+def relative_url(): 
     
-    translate = korean_words()
-    string_list = str(translate)
-    text = re.sub('[,\[\]]', '', string_list) 
-    google = GoogleTranslator(source='ko', targeg='en').translate(string_list)      
-    splited = text.split()
-
-    return text
+    url_absolute = 

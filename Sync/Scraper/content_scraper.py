@@ -1,22 +1,18 @@
 from bs4 import BeautifulSoup
 import requests as re
-from urllib.parse import urljoin
-
-KOREAN_ABSOLUTE = "https://en.wiktionary.org"
-KOREAN_FREQUENCY = "https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists/Korean_5800"
 
 # Return hrefs as well if href==TRUE
-def korean_words(links=False, src=False):
+def get_table_content(src: bool =False) -> list:
+   hrefs = []
+   ko_words = []
    try:
-       req = re.get(KOREAN_FREQUENCY)
+       req = re.get(src)
        content = BeautifulSoup(req.content, 'html.parser')
 
        if content.body.table:
            table = content.body.table
            table_dl = table.find('dl').find_all('dd')
 
-           hrefs = []
-           ko_words = [] 
 
            for href in table_dl:
                link = href.find('a')['href']
@@ -32,13 +28,12 @@ def korean_words(links=False, src=False):
        return None
    
    if src:
-       full_info = print(KOREAN_ABSOLUTE + '\n' + f'hrefs => {hrefs}' + '\n' + f'Words : {ko_words}' + '\n')
+       for i, j in hrefs and ko_words: 
+           full_info = input(src + '\n' + f'HREFS => {i}' + '\n' + f'Words : {j}' + '\n')
+
        return full_info
-   
-   if links==False:
-        return ko_words
    else:
-       return ko_words, hrefs
+       return ko_words
        
 
 

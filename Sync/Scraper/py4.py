@@ -3,7 +3,7 @@ from deep_translator import (GoogleTranslator,
                              PonsTranslator,
                              LingueeTranslator,
                              MyMemoryTranslator)
-from py2 import korean_words
+from Sync.Scraper.content_scraper import korean_words
 
 
 def translate_phrase():
