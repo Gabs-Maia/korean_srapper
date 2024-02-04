@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests as re
 
 # Return hrefs as well if href==TRUE
-def get_table_content(src: bool =False) -> list:
+def get_table_contentTXT(src: bool =False) -> list:
    hrefs = []
    ko_words = []
    try:
